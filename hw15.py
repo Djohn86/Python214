@@ -2,13 +2,13 @@ import re
 
 # 1я задача
 
-# s = 'my-p@ssw0rd'
-# s1 = 'Passw'
-# s2 = 'jk532ywp@-partner'
-# reg = '[A-Za-z0-9@-]{6,18}'
-# print(bool(re.findall(reg, s)))
-# print(bool(re.findall(reg, s1)))
-# print(bool(re.findall(reg, s2)))
+s = 'my-p@ssw0rd'
+s1 = 'Passw'
+s2 = 'jk532ywp@-partner'
+reg = '[A-Za-z0-9@-]{6,18}'
+print(bool(re.findall(reg, s)))
+print(bool(re.findall(reg, s1)))
+print(bool(re.findall(reg, s2)))
 
 # 2я задача
 

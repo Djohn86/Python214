@@ -15,6 +15,6 @@ def val_tel(m):
 
 print(val_tel(s1))
 print(val_tel(s2))
-print(val_tel(s3))
+print(val_tel(s3)) 
 print(val_tel(s4))
 print(val_tel(s5))
