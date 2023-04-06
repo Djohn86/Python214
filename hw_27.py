@@ -14,7 +14,7 @@ def get_person():
 
     while len(tel) != 10:
         tel += choice(nums)
-    
+
     person = {
         'name': name,
         'tel': tel

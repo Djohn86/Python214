@@ -94,13 +94,112 @@
 
 import csv
 
-with open('data.csv') as f:
-    file_reader = csv.reader(f, delimiter=';')
-    count = 0
-    for row in file_reader:
-        if count == 0:
-            print(f"Файл содержит столбцы: {', '.join(row)}")
-        else:
-            print(f"\t{row[0]} - {row[1]}. Родился в {row[2]} году")
-        count += 1
-    print(f"Всего в файле {count} строки")
+# with open('data.csv') as f:
+#     fn = ['Имя', 'Профессия', 'Год рождения']
+#     file_reader = csv.reader(f, delimiter=';')
+#     count = 0
+#     for row in file_reader:
+#         if count == 0:
+#             print(f"Файл содержит столбцы: {', '.join(row)}")
+#         else:
+#             print(f"\t{row[0]} - {row[1]}. Родился в {row[2]} году")
+#         count += 1
+#     print(f"Всего в файле {count} строки")
+
+# with open('student.csv', 'w') as f:
+#     writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#     writer.writerow(['Name', 'Class', 'Age'])
+#     writer.writerow(['Djohn', '9', '15'])
+#     writer.writerow(['Ivan', '10', '15'])
+#     writer.writerow(['Maxim', '11', '17'])
+
+
+# data = [['hostname', 'vendor', 'model', 'location'],
+#         ['sw1', 'Cisco', '3750', 'London, Best str'],
+#         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
+#         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
+#         ['sw4', 'Cisco', '3650', 'London, Best str']]
+
+# with open('sw_data.csv', 'w') as f:
+#     writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#     writer.writerows(data)
+
+# with open('sw_data.csv', 'w') as f:
+#     name = ['Name', 'Age']
+#     writer = csv.DictWriter(f, delimiter=';', lineterminator='\r', fieldnames=None)
+#     writer.writeheader()
+#     writer.writerow({'name': 'Sasha', 'age': 8})
+#     writer.writerow({'name': 'Sasha1', 'age': 8})
+#     writer.writerow({'name': 'Sasha2', 'age': 6})
+#     writer.writerow({'name': 'Sasha4', 'age': 7})
+#     writer.writerow({'name': 'Sasha3', 'age': 18})
+
+
+# Парсинг данных с сай
+
+from bs4 import  BeautifulSoup
+
+
+# f = open('index.html').read()
+# soup = BeautifulSoup(f, 'html.parser')
+# # row = soup.find_all('div', class_='row')[1].find(class_='name').text
+# row = soup.find_all('div', {'data-set': 'salary'})
+# print(row)
+
+# import requests
+#
+# res = requests.get('https://ru.wordpress.org/')
+# print(res.status_code)
+
+
+# import requests
+# from bs4 import BeautifulSoup
+# import re
+#
+#
+# def get_html(url):
+#     res = requests.get(url)
+#     return res.text
+#
+#
+# # def refined(s):
+# #     return re.sub(r"\D+", "", s)
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     elements = soup.find_all('article', class_='plugin-card')
+#     for el in elements:
+#         try:
+#             name = el.find('h3').text
+#         except ValueError:
+#             name = ""
+#
+#         try:
+#             url = el.find('h3').find('a').get('href')
+#         except ValueError:
+#             url = ""
+#     print()
+#
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/plugins/browser/blocks/"
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+from parse import Parser
+
+
+def main():
+    pars = Parser('https://www.ixbt.com/live/index/news/', 'news.txt')
+    pars.get_html()
+    pars.parsing()
+
+
+if __name__ == '__main__':
+    main()
